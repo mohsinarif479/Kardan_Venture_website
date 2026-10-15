@@ -39,17 +39,17 @@ export default function TestimonialsFaq() {
   ];
 
   return (
-    <section id="faqs" className="py-20 lg:py-24 bg-[#f8fafc] text-slate-900 relative border-b border-slate-200">
+    <section id="faqs" className="py-20 lg:py-24 bg-[#e6ecf4] text-[#0c1e38] relative border-b border-[#cbd7e6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Testimonials Segment */}
         <div className="mb-20">
-          <div className="max-w-3xl mx-auto text-center space-y-3 mb-12">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-200 text-slate-800 text-xs font-mono font-semibold uppercase tracking-wider">
+          <div className="max-w-3xl mx-auto text-center space-y-3.5 mb-14">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-flat-sm text-amber-700 text-xs font-mono font-bold uppercase tracking-wider">
               <Quote className="w-3.5 h-3.5 text-amber-700" />
               <span>Institutional Commendations</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-950 tracking-tight font-sans">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0c1e38] tracking-tight font-sans">
               Feedback from Public Procurement Authorities
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
@@ -57,33 +57,33 @@ export default function TestimonialsFaq() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((t, idx) => {
               const Icon = t.icon;
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-xl border border-slate-300 p-6 flex flex-col justify-between hover:border-slate-500 shadow-sm transition-all relative"
+                  className="neu-card rounded-3xl p-7 flex flex-col justify-between"
                 >
                   <div>
-                    <div className="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
-                      <div className="w-10 h-10 rounded bg-slate-50 border border-slate-200 flex items-center justify-center text-slate-900">
+                    <div className="flex items-center justify-between mb-4 pb-3 border-b border-[#cbd7e6]/70">
+                      <div className="w-11 h-11 rounded-2xl neu-pressed flex items-center justify-center text-amber-700">
                         <Icon className="w-5 h-5 text-amber-700" />
                       </div>
-                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-600">
+                      <span className="text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full neu-pill text-slate-700">
                         Official Sign-off
                       </span>
                     </div>
 
-                    <p className="text-xs sm:text-sm text-slate-700 italic mb-6 leading-relaxed">
+                    <p className="text-xs sm:text-sm text-slate-700 italic mb-6 leading-relaxed font-normal">
                       &ldquo;{t.quote}&rdquo;
                     </p>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-200">
-                    <div className="text-xs font-bold text-slate-950">{t.author}</div>
-                    <div className="text-[11px] text-amber-800 font-semibold">{t.role}</div>
-                    <div className="text-[10px] text-slate-500 font-mono mt-0.5">{t.agency}</div>
+                  <div className="pt-3 border-t border-[#cbd7e6]/70">
+                    <div className="text-xs font-bold text-[#0c1e38]">{t.author}</div>
+                    <div className="text-[11px] text-amber-800 font-bold">{t.role}</div>
+                    <div className="text-[10px] text-slate-500 font-mono font-medium mt-0.5">{t.agency}</div>
                   </div>
                 </div>
               );
@@ -93,12 +93,12 @@ export default function TestimonialsFaq() {
 
         {/* FAQs Segment */}
         <div className="max-w-4xl mx-auto">
-          <div className="text-center space-y-2 mb-10">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-200 text-slate-800 text-xs font-mono font-semibold uppercase tracking-wider">
+          <div className="text-center space-y-3 mb-12">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-flat-sm text-amber-700 text-xs font-mono font-bold uppercase tracking-wider">
               <HelpCircle className="w-3.5 h-3.5 text-amber-700" />
               <span>Procurement & Contracting FAQs</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950 font-sans">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#0c1e38] font-sans">
               Frequently Asked Questions by Tender Committees
             </h3>
             <p className="text-slate-600 text-xs sm:text-sm">
@@ -106,35 +106,35 @@ export default function TestimonialsFaq() {
             </p>
           </div>
 
-          <div className="space-y-3">
+          <div className="space-y-4">
             {FAQS_DATA.map((faq, idx) => {
               const isOpen = openFaqIndex === idx;
               return (
                 <div
                   key={idx}
-                  className="bg-white rounded-lg border border-slate-300 overflow-hidden shadow-sm"
+                  className="neu-flat rounded-2xl overflow-hidden transition-all"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full p-4 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-50 transition-colors"
+                    className="w-full p-5 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-slate-200/50 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-mono font-bold uppercase px-2 py-0.5 rounded bg-slate-100 text-slate-700 border border-slate-200 shrink-0">
+                      <span className="text-[10px] font-mono font-bold uppercase px-2.5 py-1 rounded-full neu-pressed-sm text-slate-700 shrink-0">
                         {faq.category}
                       </span>
-                      <span className="text-xs sm:text-sm font-bold text-slate-900 font-sans">
+                      <span className="text-xs sm:text-sm font-bold text-[#0c1e38] font-sans">
                         {faq.question}
                       </span>
                     </div>
                     <ChevronDown
                       className={`w-4 h-4 text-slate-500 shrink-0 transition-transform duration-200 ${
-                        isOpen ? 'rotate-180 text-slate-900' : ''
+                        isOpen ? 'rotate-180 text-amber-700' : ''
                       }`}
                     />
                   </button>
 
                   {isOpen && (
-                    <div className="px-5 pb-5 pt-2 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-slate-100 bg-slate-50">
+                    <div className="px-6 pb-6 pt-3 text-xs sm:text-sm text-slate-700 leading-relaxed border-t border-[#cbd7e6]/70 neu-pressed-sm font-normal">
                       {faq.answer}
                     </div>
                   )}

@@ -6,7 +6,7 @@ import {
   Menu, 
   X, 
   FileText, 
-  ChevronRight 
+  ChevronRight
 } from 'lucide-react';
 import { COMPANY_PROFILE } from '../data/companyData';
 

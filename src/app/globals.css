@@ -1,61 +1,177 @@
 @import "tailwindcss";
 
 :root {
-  --corporate-navy: #0a192f;
-  --corporate-blue: #0f2b48;
-  --corporate-slate: #1e293b;
+  --neu-bg: #e6ecf4;
+  --neu-surface: #e6ecf4;
+  --neu-light: #ffffff;
+  --neu-dark: #c5d0de;
+  --neu-dark-deep: #b0bfd2;
+  
+  --corporate-navy: #0c1e38;
+  --corporate-navy-light: #162c4e;
   --corporate-gold: #b45309;
-  --corporate-gold-light: #d97706;
-  --corporate-gray-bg: #f8fafc;
-  --corporate-border: #e2e8f0;
+  --corporate-gold-hover: #d97706;
+  --corporate-blue: #2563eb;
+  --corporate-slate: #334155;
+  --corporate-muted: #64748b;
 }
 
 html {
   scroll-behavior: smooth;
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--neu-bg);
 }
 
 body {
-  background-color: #f8fafc;
-  color: #0f172a;
+  background-color: #e6ecf4;
+  color: #0c1e38;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Institutional Corporate Styling */
-.executive-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+/* === NEUMORPHISM CORE UTILITIES === */
+
+/* Raised Surface (Default Neumorphic Card) */
+.neu-flat {
+  background: #e6ecf4;
+  box-shadow: 8px 8px 18px #c1ccd9, -8px -8px 18px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
-.executive-card:hover {
-  border-color: #cbd5e1;
-  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+.neu-flat-sm {
+  background: #e6ecf4;
+  box-shadow: 4px 4px 10px #c5d0de, -4px -4px 10px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
-.official-stamp {
-  border: 2px dashed #0f2b48;
-  color: #0f2b48;
-  text-transform: uppercase;
-  font-weight: 800;
-  letter-spacing: 0.1em;
+.neu-flat-lg {
+  background: #e6ecf4;
+  box-shadow: 12px 12px 28px #bac6d4, -12px -12px 28px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
-/* Subtle blueprint background for engineering sections */
-.bg-blueprint {
-  background-color: #0a192f;
+/* Hoverable Raised Surface */
+.neu-card {
+  background: #e6ecf4;
+  box-shadow: 7px 7px 16px #c4cfdd, -7px -7px 16px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.neu-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 12px 12px 24px #b8c4d2, -12px -12px 24px #ffffff;
+  border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Sunken / Inset Surface (Inputs, wells, active states) */
+.neu-pressed {
+  background: #e6ecf4;
+  box-shadow: inset 4px 4px 8px #c2cddb, inset -4px -4px 8px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.neu-pressed-sm {
+  background: #e6ecf4;
+  box-shadow: inset 2px 2px 5px #c5d0de, inset -2px -2px 5px #ffffff;
+}
+
+.neu-pressed-deep {
+  background: #e2e8f1;
+  box-shadow: inset 6px 6px 12px #b8c4d2, inset -6px -6px 12px #ffffff;
+}
+
+/* Tactile Interactive Buttons */
+.neu-btn {
+  background: #e6ecf4;
+  box-shadow: 5px 5px 12px #c3cedc, -5px -5px 12px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.neu-btn:hover {
+  box-shadow: 7px 7px 14px #bac6d4, -7px -7px 14px #ffffff;
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+.neu-btn:active {
+  box-shadow: inset 3px 3px 6px #c2cddb, inset -3px -3px 6px #ffffff;
+  transform: translateY(1px);
+}
+
+/* Primary Navy Button with Neumorphic Glow */
+.neu-btn-primary {
+  background: linear-gradient(145deg, #0e2444, #08172c);
+  color: #ffffff;
+  box-shadow: 5px 5px 14px #b8c5d4, -5px -5px 14px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.neu-btn-primary:hover {
+  background: linear-gradient(145deg, #122d56, #0b1f3b);
+  box-shadow: 7px 7px 18px #aebecd, -7px -7px 18px #ffffff;
+}
+
+.neu-btn-primary:active {
+  box-shadow: inset 3px 3px 6px #050e1b, inset -3px -3px 6px #15335e;
+  transform: translateY(1px);
+}
+
+/* Gold / Amber Action Button */
+.neu-btn-gold {
+  background: linear-gradient(145deg, #d97706, #b45309);
+  color: #ffffff;
+  box-shadow: 5px 5px 14px #c2cedc, -5px -5px 14px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.neu-btn-gold:hover {
+  background: linear-gradient(145deg, #ea580c, #c2410c);
+  box-shadow: 7px 7px 18px #b4c2d2, -7px -7px 18px #ffffff;
+}
+
+.neu-btn-gold:active {
+  box-shadow: inset 3px 3px 6px #78350f, inset -3px -3px 6px #f59e0b;
+  transform: translateY(1px);
+}
+
+/* Convex Pill & Emblem */
+.neu-pill {
+  background: #e6ecf4;
+  box-shadow: 3px 3px 7px #c5d0de, -3px -3px 7px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.neu-pill-active {
+  background: #e6ecf4;
+  box-shadow: inset 3px 3px 6px #c0cbda, inset -3px -3px 6px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Recessed Input Box */
+.neu-input {
+  background: #e4eaf2;
+  box-shadow: inset 3px 3px 6px #c1ccd9, inset -3px -3px 6px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  color: #0f172a;
+  transition: all 0.2s ease;
+}
+
+.neu-input:focus {
+  outline: none;
+  box-shadow: inset 4px 4px 8px #b6c3d2, inset -4px -4px 8px #ffffff, 0 0 0 2px #2563eb;
+  background: #edf2f8;
+}
+
+/* Subtle architectural grid pattern overlay */
+.neu-grid-pattern {
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 32px 32px;
-}
-
-.bg-corporate-light {
-  background-color: #f8fafc;
-  background-image: 
-    linear-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
+    radial-gradient(rgba(148, 163, 184, 0.25) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+

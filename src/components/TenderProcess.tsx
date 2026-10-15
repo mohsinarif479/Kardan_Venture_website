@@ -56,55 +56,55 @@ export default function TenderProcess() {
   ];
 
   return (
-    <section id="process" className="py-20 lg:py-24 bg-[#0a192f] text-slate-100 relative border-b border-slate-700 bg-blueprint">
+    <section id="process" className="py-20 lg:py-24 bg-[#e6ecf4] text-[#0c1e38] relative border-b border-[#cbd7e6]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8">
         
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-slate-900 border border-slate-700 text-amber-400 text-xs font-mono font-semibold uppercase tracking-wider">
+        <div className="max-w-3xl mx-auto text-center space-y-3.5 mb-14">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full neu-flat-sm text-amber-700 text-xs font-mono font-bold uppercase tracking-wider">
             <Lock className="w-3.5 h-3.5" />
             <span>Procurement Governance & Delivery Protocol</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0c1e38] tracking-tight font-sans">
             5-Stage Statutory Tender Execution Framework
           </h2>
-          <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+          <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
             Engineered for complete statutory transparency, zero contractual disputes, and strict compliance with public procurement rules from initial bidding to final audit discharge.
           </p>
         </div>
 
         {/* Steps Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-5 relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6 relative">
           {steps.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.step}
-                className="bg-[#0d213b] rounded-xl border border-slate-700 p-5 flex flex-col justify-between hover:border-slate-500 transition-all duration-200 relative shadow-sm"
+                className="neu-card rounded-3xl p-6 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-3 pb-2 border-b border-slate-700">
-                    <span className="font-mono text-xl font-black text-amber-400">
+                  <div className="flex items-center justify-between mb-4 pb-2 border-b border-[#cbd7e6]/70">
+                    <span className="font-mono text-2xl font-black text-amber-700">
                       {item.step}
                     </span>
-                    <div className="w-8 h-8 rounded bg-slate-900 border border-slate-700 flex items-center justify-center">
-                      <Icon className="w-4 h-4 text-amber-400" />
+                    <div className="w-9 h-9 rounded-xl neu-pressed flex items-center justify-center">
+                      <Icon className="w-4 h-4 text-[#0c1e38]" />
                     </div>
                   </div>
 
-                  <h3 className="text-sm font-bold text-white mb-1 font-sans">
+                  <h3 className="text-sm font-bold text-[#0c1e38] mb-1 font-sans">
                     {item.title}
                   </h3>
-                  <div className="text-[10px] font-mono text-amber-300/80 mb-2 font-semibold">
+                  <div className="text-[10px] font-mono text-amber-800 mb-2.5 font-bold">
                     {item.subtitle}
                   </div>
-                  <p className="text-xs text-slate-300 leading-relaxed mb-4">
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4 font-normal">
                     {item.description}
                   </p>
                 </div>
 
-                <div className="pt-2 border-t border-slate-700">
-                  <span className="inline-block text-[10px] font-mono font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-950 text-emerald-400 border border-slate-800">
+                <div className="pt-3 border-t border-[#cbd7e6]/70">
+                  <span className="inline-block text-[10px] font-mono font-bold uppercase tracking-wider px-3 py-1 rounded-full neu-pressed-sm text-emerald-800">
                     ✓ {item.highlight}
                   </span>
                 </div>
@@ -114,16 +114,16 @@ export default function TenderProcess() {
         </div>
 
         {/* Assurance Box */}
-        <div className="mt-12 p-6 rounded-xl bg-slate-900 border border-slate-700 flex flex-col lg:flex-row items-center justify-between gap-5">
-          <div className="flex items-start sm:items-center gap-3.5">
-            <div className="w-10 h-10 rounded bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shrink-0">
-              <Award className="w-5 h-5" />
+        <div className="mt-14 p-7 rounded-3xl neu-flat-lg flex flex-col lg:flex-row items-center justify-between gap-6">
+          <div className="flex items-start sm:items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl neu-pressed flex items-center justify-center text-emerald-700 shrink-0">
+              <Award className="w-6 h-6" />
             </div>
             <div>
-              <div className="text-sm font-bold text-white font-sans">
+              <div className="text-sm font-bold text-[#0c1e38] font-sans">
                 Zero Contract Default & 100% Performance Guarantee Retention Release Record
               </div>
-              <div className="text-xs text-slate-400 mt-0.5">
+              <div className="text-xs text-slate-600 mt-1">
                 Over 12 years of public contracting, Kardan Ventures (Pvt.) Limited has maintained an unblemished record with zero liquidated damages (LDs) or performance encashments.
               </div>
             </div>
@@ -131,7 +131,7 @@ export default function TenderProcess() {
 
           <a
             href="#calculator"
-            className="shrink-0 px-5 py-2.5 rounded bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs uppercase tracking-wider transition-all cursor-pointer shadow-sm"
+            className="shrink-0 neu-btn-gold px-6 py-3.5 rounded-2xl text-white font-extrabold text-xs uppercase tracking-wider transition-all cursor-pointer"
           >
             Submit Tender Requirement Now
           </a>

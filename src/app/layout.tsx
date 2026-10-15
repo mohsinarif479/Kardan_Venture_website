@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0f172a",
+  themeColor: "#e6ecf4",
 };
 
 export const metadata: Metadata = {
@@ -49,9 +49,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-950 text-slate-100 selection:bg-amber-500 selection:text-slate-950`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#e6ecf4] text-[#0c1e38] selection:bg-amber-500 selection:text-white`}
+        suppressHydrationWarning
       >
         {children}
       </body>

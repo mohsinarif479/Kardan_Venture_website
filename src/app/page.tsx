@@ -41,7 +41,8 @@ export default function Home() {
     setBasketItems([]);
   };
 
-  const handleSelectServiceForRfq = () => {
+  const handleSelectServiceForRfq = (serviceTitle?: string) => {
+    void serviceTitle;
     const calcElement = document.getElementById('calculator');
     if (calcElement) {
       calcElement.scrollIntoView({ behavior: 'smooth' });
@@ -56,7 +57,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col bg-[#f8fafc] text-slate-900 selection:bg-amber-500 selection:text-slate-950">
+    <main className="min-h-screen flex flex-col bg-[#e6ecf4] text-[#0c1e38] selection:bg-amber-500 selection:text-white">
       
       {/* Top Bar for Tender Announcements & Quick Contact */}
       <TopNotificationBar
@@ -76,12 +77,12 @@ export default function Home() {
         onOpenProfile={() => setIsProfileOpen(true)}
       />
 
-      {/* Corporate Overview & 4 Pillars */}
+      {/* Corporate Profile & Governance Overview */}
       <AboutOverview
         onOpenProfile={() => setIsProfileOpen(true)}
       />
 
-      {/* Core Contracting Divisions (Tenders, Civil, IT Equipment, General Order) */}
+      {/* Core Contracting Verticals (Tenders, Civil, IT Equipment, General Order) */}
       <ServicesSection
         onSelectServiceForRfq={handleSelectServiceForRfq}
       />
