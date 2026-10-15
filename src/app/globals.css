@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --corporate-navy: #0a192f;
+  --corporate-blue: #0f2b48;
+  --corporate-slate: #1e293b;
+  --corporate-gold: #b45309;
+  --corporate-gold-light: #d97706;
+  --corporate-gray-bg: #f8fafc;
+  --corporate-border: #e2e8f0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Institutional Corporate Styling */
+.executive-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(15, 23, 42, 0.05), 0 1px 2px -1px rgba(15, 23, 42, 0.05);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.executive-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+}
+
+.official-stamp {
+  border: 2px dashed #0f2b48;
+  color: #0f2b48;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+/* Subtle blueprint background for engineering sections */
+.bg-blueprint {
+  background-color: #0a192f;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-corporate-light {
+  background-color: #f8fafc;
+  background-image: 
+    linear-gradient(rgba(15, 23, 42, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.02) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
