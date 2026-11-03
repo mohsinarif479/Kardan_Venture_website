@@ -14,7 +14,6 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const pathname = usePathname();
 
-  // Scroll detection to update background and shadow
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 15);
@@ -25,19 +24,16 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Measure header height for mobile menu positioning
   useEffect(() => {
     if (headerRef.current) {
       setHeaderHeight(headerRef.current.offsetHeight);
     }
   }, [isScrolled]);
 
-  // Close mobile menu when pathname changes
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
 
-  // Close mobile menu on Escape key
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -58,7 +54,6 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
-  // Check if a link is active
   const isActive = (href: string) => {
     if (href === '/') {
       return pathname === '/';
@@ -72,7 +67,7 @@ export default function Header() {
       ref={headerRef}
       className={`sticky top-0 z-50 w-full transition-all duration-300 ease-in-out bg-white ${
         isScrolled
-          ? 'shadow-sm py-3.5 border-b border-slate-200/80 bg-white/98 backdrop-blur-md'
+          ? 'shadow-sm py-3.5 border-b border-slate-200/80'
           : 'py-4 md:py-5 border-b border-slate-100'
       }`}
     >
@@ -86,45 +81,48 @@ export default function Header() {
           <KardanLogo size="md" variant="dark" />
         </Link>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation Links matching mockup */}
         <nav
           aria-label="Primary Navigation"
-          className="hidden lg:flex items-center gap-6 xl:gap-8"
+          className="hidden lg:flex items-center gap-7 xl:gap-8"
         >
           {NAV_LINKS.map((link) => {
             const active = isActive(link.href);
             return (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`relative py-1 text-sm font-semibold tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D9488] rounded ${
-                  active
-                    ? 'text-[#0A3433] font-bold'
-                    : 'text-[#475569] hover:text-[#0D9488]'
-                }`}
-                aria-current={active ? 'page' : undefined}
-              >
-                <span>{link.label}</span>
-                {/* Mockup Active Indicator Pill Line */}
-                {active && (
+              <div key={link.href} className="flex flex-col items-center">
+                <Link
+                  href={link.href}
+                  className={`py-1 text-sm font-semibold tracking-normal transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D9488] rounded ${
+                    active
+                      ? 'text-[#0A3433] font-bold'
+                      : 'text-[#475569] hover:text-[#0D9488]'
+                  }`}
+                  aria-current={active ? 'page' : undefined}
+                >
+                  {link.label}
+                </Link>
+                {/* Active Underline Pill Indicator matching mockup */}
+                {active ? (
                   <span
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#0D9488] rounded-full"
+                    className="w-6 h-[2.5px] bg-[#0D9488] rounded-full mt-0.5"
                     aria-hidden="true"
                   />
+                ) : (
+                  <span className="w-6 h-[2.5px] bg-transparent rounded-full mt-0.5" />
                 )}
-              </Link>
+              </div>
             );
           })}
         </nav>
 
-        {/* Desktop CTA Button matching mockup: dark teal pill with arrow */}
+        {/* Desktop CTA Button matching mockup: dark teal pill with Contact Us → */}
         <div className="hidden lg:flex items-center">
           <Link
             href="/contact-us"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#093333] hover:bg-[#0c4040] text-white text-sm font-semibold shadow-sm transition-all hover:translate-x-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D9488]"
+            className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-[#083232] hover:bg-[#0c4040] text-white text-sm font-semibold shadow-xs transition-all hover:translate-x-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0D9488]"
           >
             <span>Contact Us</span>
-            <ArrowRight className="w-4 h-4 text-emerald-300" aria-hidden="true" />
+            <ArrowRight className="w-4 h-4 text-white" aria-hidden="true" />
           </Link>
         </div>
 
@@ -196,10 +194,10 @@ export default function Header() {
           <Link
             href="/contact-us"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-[#093333] text-white font-semibold text-sm shadow-md"
+            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-xl bg-[#083232] text-white font-semibold text-sm shadow-md"
           >
             <span>Contact Us</span>
-            <ArrowRight className="w-4 h-4 text-emerald-300" />
+            <ArrowRight className="w-4 h-4 text-white" />
           </Link>
           <p className="text-center text-xs text-[#526174] font-medium mt-4">
             Kardan Ventures (Private) Limited • Punjab, Pakistan

@@ -19,34 +19,43 @@ const VALUE_ICONS: Record<string, LucideIcon> = {
 export default function ValueRibbon() {
   return (
     <div className="w-full">
-      {/* Dark Forest Teal Ribbon matching mockup */}
+      {/* Dark Forest Pine Ribbon matching mockup with geometric diagonal edge cuts */}
       <section 
-        className="w-full bg-[#062423] text-white py-8 border-t border-b border-[#0D3837] relative overflow-hidden"
+        className="w-full bg-[#062423] text-white py-6 md:py-7 relative overflow-hidden"
         aria-label="Core Brand Values"
       >
-        {/* Subtle decorative geometric overlay */}
+        {/* Left diagonal corner accent */}
         <div 
-          className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#2DD4BF_1px,transparent_1px)] [background-size:16px_16px]" 
+          className="hidden xl:block absolute -left-12 -top-12 w-28 h-28 bg-[#0D4D4B]/40 transform rotate-45 pointer-events-none" 
+          aria-hidden="true" 
+        />
+        
+        {/* Right diagonal corner accent matching mockup */}
+        <div 
+          className="hidden xl:block absolute -right-12 -bottom-12 w-36 h-36 bg-gradient-to-tl from-[#14B8A6]/25 to-transparent transform rotate-45 pointer-events-none" 
           aria-hidden="true" 
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 items-center divide-y sm:divide-y-0 sm:divide-x divide-[#0D3837]/80">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 items-center">
             {BRAND_VALUES.map((item, idx) => {
               const IconComp = VALUE_ICONS[item.icon] ?? ShieldCheck;
+              const isLast = idx === BRAND_VALUES.length - 1;
               return (
                 <div 
                   key={item.title} 
-                  className={`flex items-center gap-4 ${idx !== 0 ? 'sm:pl-6' : ''} ${idx !== 0 ? 'pt-4 sm:pt-0' : ''}`}
+                  className={`flex items-center gap-4 ${
+                    idx !== 0 ? 'lg:pl-8 lg:border-l lg:border-white/15' : ''
+                  } ${!isLast ? 'lg:pr-6' : ''}`}
                 >
-                  {/* Clean outline icon in mint accent */}
-                  <div className="w-11 h-11 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-[#2DD4BF]">
-                    <IconComp className="w-6 h-6" aria-hidden="true" />
+                  {/* Clean outline icon in crisp white/mint */}
+                  <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/15 flex items-center justify-center shrink-0 text-[#2DD4BF]">
+                    <IconComp className="w-5 h-5 text-white" aria-hidden="true" />
                   </div>
                   
                   {/* Title & Tagline */}
                   <div>
-                    <h3 className="text-base font-bold text-white tracking-wide">
+                    <h3 className="text-sm sm:text-base font-bold text-white tracking-wide">
                       {item.title}
                     </h3>
                     <p className="text-xs text-emerald-100/75 mt-0.5">
@@ -62,16 +71,16 @@ export default function ValueRibbon() {
 
       {/* Sub-strip with Registered Office & Corporate Motto matching mockup */}
       <div className="w-full bg-white border-b border-slate-200 py-3.5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-[#526174]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#526174]">
           <div className="flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5 text-[#0D9488] shrink-0" aria-hidden="true" />
-            <span className="font-medium">
-              Registered Office: 2nd Floor, Corporate Avenue, Punjab, Pakistan
+            <span className="font-medium text-[#475569]">
+              Registered Office: (Your Registered Address), Punjab, Pakistan
             </span>
           </div>
 
-          <div className="flex items-center gap-2 tracking-[0.2em] uppercase font-bold text-[11px] text-[#0A3433]">
-            <span className="w-6 h-[1.5px] bg-[#0D9488]" />
+          <div className="flex items-center gap-2 tracking-[0.25em] uppercase font-bold text-[11px] text-[#0A3433]">
+            <span className="w-8 h-[1.5px] bg-[#0A3433]" />
             <span>TO THE LAST CHIP</span>
           </div>
         </div>
@@ -79,4 +88,3 @@ export default function ValueRibbon() {
     </div>
   );
 }
-
