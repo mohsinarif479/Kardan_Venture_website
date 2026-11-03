@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
   return (
     <div className="bg-white min-h-screen">
       {/* ─── Hero Banner ─── */}
-      <section className="bg-[#102A43] text-white py-14 sm:py-20 border-b border-[#1B3A5C]">
+      <section className="bg-[#062322] border-b border-[#0D9488]/20 text-white py-14 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="mb-6">
@@ -34,25 +34,36 @@ export default function PrivacyPolicyPage() {
               <li>
                 <Link
                   href="/"
-                  className="hover:text-white transition-colors duration-200 focus-visible:ring-1 focus-visible:ring-white rounded"
+                  className="hover:text-white transition-colors duration-200 focus-visible:ring-1 focus-visible:ring-emerald-400 rounded"
                 >
                   Home
                 </Link>
               </li>
               <li aria-hidden="true">
-                <ChevronRight className="w-4 h-4 text-slate-400" />
+                <ChevronRight className="w-4 h-4 text-emerald-400/60" />
               </li>
-              <li className="text-[#C5A46D] font-medium" aria-current="page">
+              <li className="text-[#2DD4BF] font-semibold" aria-current="page">
                 Privacy Policy
               </li>
             </ol>
           </nav>
 
-          <div className="gold-bar mb-4" />
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <div className="inline-flex items-center gap-3 mb-4">
+            <span className="w-8 h-[2px] bg-[#2DD4BF] rounded-full" />
+            <span className="text-xs sm:text-sm font-bold tracking-[0.22em] uppercase text-[#2DD4BF]">
+              DATA GOVERNANCE & PRIVACY
+            </span>
+          </div>
+          <h1
+            style={{ color: '#ffffff' }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight hero-title-shadow"
+          >
             Privacy Policy
           </h1>
-          <p className="mt-4 text-base sm:text-lg text-slate-300 max-w-3xl leading-relaxed">
+          <p
+            style={{ color: '#f1f5f9' }}
+            className="mt-4 text-base sm:text-lg text-slate-100 max-w-3xl leading-relaxed font-normal"
+          >
             Data governance, confidential tender handling, and institutional privacy standards for {SITE_LEGAL}.
           </p>
 

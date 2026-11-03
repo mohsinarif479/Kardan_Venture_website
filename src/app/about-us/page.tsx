@@ -27,30 +27,30 @@ export default function AboutUsPage() {
   return (
     <div className="flex flex-col w-full">
       {/* ─── 1. Hero Banner ─── */}
-      <section className="bg-[#102A43] py-20 md:py-28 relative overflow-hidden">
+      <section className="bg-[#062322] border-b border-[#0D9488]/20 py-20 md:py-28 relative overflow-hidden text-white">
         {/* Subtle ambient lighting effect */}
         <div
-          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(29,78,216,0.18),transparent_60%)] pointer-events-none"
+          className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(45,212,191,0.15),transparent_60%)] pointer-events-none"
           aria-hidden="true"
         />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Breadcrumb Navigation */}
           <nav aria-label="Breadcrumb" className="mb-6">
-            <ol className="flex items-center space-x-2 text-sm text-white/70">
+            <ol className="flex items-center space-x-2 text-sm text-slate-300">
               <li>
                 <Link
                   href="/"
-                  className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded px-1"
+                  className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded px-1"
                 >
                   Home
                 </Link>
               </li>
               <li aria-hidden="true">
-                <ChevronRight className="w-4 h-4 text-white/40" />
+                <ChevronRight className="w-4 h-4 text-emerald-400/60" />
               </li>
               <li>
-                <span className="text-white font-medium px-1" aria-current="page">
+                <span className="text-[#2DD4BF] font-semibold px-1" aria-current="page">
                   About Us
                 </span>
               </li>
@@ -59,11 +59,22 @@ export default function AboutUsPage() {
 
           {/* Title & Subtitle */}
           <div className="max-w-3xl">
-            <div className="gold-bar mb-4" aria-hidden="true" />
-            <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-tight">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 h-[2px] bg-[#2DD4BF] rounded-full" />
+              <span className="text-xs sm:text-sm font-bold tracking-[0.22em] uppercase text-[#2DD4BF]">
+                INSTITUTIONAL PARTNERSHIP & GOVERNANCE
+              </span>
+            </div>
+            <h1
+              style={{ color: '#ffffff' }}
+              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight hero-title-shadow"
+            >
               About Kardan Ventures
             </h1>
-            <p className="mt-5 text-lg md:text-xl text-white/70 leading-relaxed max-w-2xl">
+            <p
+              style={{ color: '#f1f5f9' }}
+              className="mt-5 text-lg md:text-xl text-slate-100 leading-relaxed max-w-2xl font-normal"
+            >
               A pre-qualified institutional contractor delivering reliable business operations, statutory tender governance, and enterprise-grade procurement solutions.
             </p>
           </div>

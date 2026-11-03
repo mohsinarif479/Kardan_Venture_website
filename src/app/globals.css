@@ -73,8 +73,25 @@ body {
   line-height: 1.2;
 }
 
-/* Ensure all dark sections always render pure white headings and high-contrast text */
-:is([class*="bg-[#062"], [class*="bg-[#083"], [class*="bg-[#0A3"], footer]) :is(h1, h2, h3, h4, h5, h6) {
+/* Ensure all dark sections, banners, hero sections, and text-white headings always render pure white */
+.text-white,
+:is(h1, h2, h3, h4, h5, h6).text-white,
+:is(h1, h2, h3, h4, h5, h6)[class*="text-white"],
+.hero-title-shadow,
+:is(
+  [class*="bg-[#062"],
+  [class*="bg-[#083"],
+  [class*="bg-[#0A3"],
+  [class*="bg-[#0F4"],
+  [class*="bg-[#102"],
+  [class*="bg-[#163"],
+  [class*="bg-[#1B3"],
+  [class*="from-[#062"],
+  [class*="from-[#102"],
+  footer,
+  header + main > div > section:first-child,
+  main > div > section:first-child
+) :is(h1, h2, h3, h4, h5, h6) {
   color: #ffffff !important;
 }
 

@@ -36,7 +36,10 @@ export default function OurDirectorsPage() {
                 EXECUTIVE LEADERSHIP & FIDUCIARY GOVERNANCE
               </span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+            <h1
+              style={{ color: '#ffffff' }}
+              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight hero-title-shadow"
+            >
               Our Directors
             </h1>
             <p className="mt-6 text-lg sm:text-xl text-emerald-100/90 leading-relaxed font-normal">

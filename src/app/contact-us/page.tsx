@@ -26,10 +26,10 @@ export default function ContactUsPage() {
   return (
     <div className="bg-white text-[#334E68] min-h-screen">
       {/* ─── Hero Banner ─── */}
-      <section className="bg-[#102A43] bg-gradient-to-b from-[#102A43] via-[#163656] to-[#102A43] text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#1B3A5C] relative overflow-hidden">
+      <section className="bg-[#062322] border-b border-[#0D9488]/20 text-white py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         {/* Subtle background ambient graphic */}
         <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(29,78,216,0.15),transparent_60%)] pointer-events-none"
+          className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.15),transparent_60%)] pointer-events-none"
           aria-hidden="true"
         />
 
@@ -40,15 +40,15 @@ export default function ContactUsPage() {
               <li>
                 <Link
                   href="/"
-                  className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded px-1"
+                  className="hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded px-1"
                 >
                   Home
                 </Link>
               </li>
-              <li aria-hidden="true" className="text-slate-500">
+              <li aria-hidden="true" className="text-emerald-400/60">
                 <ChevronRight className="w-3.5 h-3.5 inline" />
               </li>
-              <li className="text-white font-medium" aria-current="page">
+              <li className="text-[#2DD4BF] font-semibold" aria-current="page">
                 Contact Us
               </li>
             </ol>
@@ -56,14 +56,22 @@ export default function ContactUsPage() {
 
           {/* Banner Content */}
           <div className="max-w-3xl">
-            <span className="inline-block text-xs md:text-sm font-bold uppercase tracking-wider text-[#C5A46D] mb-3">
-              Official Inquiries & Coordination Desk
-            </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white mb-4 leading-tight">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="w-8 h-[2px] bg-[#2DD4BF] rounded-full" />
+              <span className="text-xs sm:text-sm font-bold tracking-[0.22em] uppercase text-[#2DD4BF]">
+                OFFICIAL INQUIRIES & COORDINATION DESK
+              </span>
+            </div>
+            <h1
+              style={{ color: '#ffffff' }}
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white mb-4 leading-tight hero-title-shadow"
+            >
               Contact Us
             </h1>
-            <div className="gold-bar mb-6" aria-hidden="true" />
-            <p className="text-base sm:text-lg text-slate-200 leading-relaxed font-normal">
+            <p
+              style={{ color: '#f1f5f9' }}
+              className="text-base sm:text-lg text-slate-100 leading-relaxed font-normal"
+            >
               Direct institutional communication for government procurement
               officers, tender RFQs, technical specification reviews, and joint
               venture inquiries. Our bid engineering team responds within 24
