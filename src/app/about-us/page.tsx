@@ -262,7 +262,34 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ─── 4. Business Philosophy ─── */}
+      {/* ─── 4. Future Ambition: Food & Hospitality in Germany ─── */}
+      <section id="future-ambition" className="py-16 md:py-24 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-gradient-to-br from-[#062322] to-[#0A3433] rounded-3xl p-8 md:p-14 text-white relative overflow-hidden">
+            <div className="max-w-3xl relative z-10">
+              <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[#2DD4BF]/20 text-[#2DD4BF] border border-[#2DD4BF]/30 mb-4">
+                Future Ambition & Global Horizons
+              </span>
+              <h2 className="text-3xl md:text-4xl font-extrabold text-white tracking-tight">
+                Future Food & Hospitality Ventures in Germany
+              </h2>
+              <p className="mt-4 text-base md:text-lg text-emerald-100/90 leading-relaxed">
+                While our core operational bedrock is established in government procurement, public sector contracting, and enterprise IT distribution across Pakistan, our long-term horizon includes thoughtful international diversification. Our strategic roadmap encompasses launching distinct hospitality ventures, with the vision of developing a distinctive food brand or artisanal coffee shop concept in Germany.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link href="/contact-us" className="btn-emerald">
+                  <span>Discuss Global Partnerships</span>
+                </Link>
+                <Link href="/our-directors" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/20 text-white text-sm font-semibold hover:bg-white/10 transition-all">
+                  <span>Board Leadership</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── 5. Business Philosophy ─── */}
       <section className="py-20 md:py-28 bg-[#F4F7FA] border-t border-[#E2E8F0]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>

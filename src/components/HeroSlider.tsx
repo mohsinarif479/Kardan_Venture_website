@@ -18,7 +18,6 @@ export default function HeroSlider() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const slideCount = HERO_SLIDES.length;
 
-  // Check prefers-reduced-motion
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     setPrefersReducedMotion(mediaQuery.matches);
@@ -43,26 +42,26 @@ export default function HeroSlider() {
     setCurrentSlide(index);
   };
 
-  // Auto-rotation every 6 seconds, pauses on hover and reduced-motion
+  // Auto-rotation every 7 seconds, pauses on hover
   useEffect(() => {
     if (isPaused || prefersReducedMotion) return;
 
     const interval = setInterval(() => {
       nextSlide();
-    }, 6000);
+    }, 7000);
 
     return () => clearInterval(interval);
   }, [isPaused, prefersReducedMotion, nextSlide]);
 
   return (
     <section
-      className="relative w-full h-[85vh] min-h-[85vh] overflow-hidden bg-[#102A43] flex items-center select-none"
-      aria-label="Featured Highlights"
+      className="relative w-full h-[88vh] min-h-[580px] max-h-[820px] overflow-hidden bg-[#062322] flex items-center select-none"
+      aria-label="Corporate Hero Banner"
       aria-roledescription="carousel"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Slides with Crossfade */}
+      {/* Slides with smooth crossfade */}
       {HERO_SLIDES.map((slide, index) => {
         const isActive = index === currentSlide;
         return (
@@ -77,7 +76,7 @@ export default function HeroSlider() {
                 ? isActive
                   ? 'opacity-100 z-10'
                   : 'opacity-0 z-0 pointer-events-none'
-                : `transition-opacity duration-700 ease-in-out ${
+                : `transition-opacity duration-1000 ease-in-out ${
                     isActive
                       ? 'opacity-100 z-10'
                       : 'opacity-0 z-0 pointer-events-none'
@@ -87,74 +86,86 @@ export default function HeroSlider() {
               backgroundImage: `url(${slide.image})`,
             }}
           >
-            {/* Multi-layer high-contrast scrim overlay */}
-            {/* Primary gradient: rich dark navy on left where text sits, fading toward right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#051120]/95 via-[#08182c]/85 to-[#08182c]/60" />
-            {/* Vertical vignette to frame top header and bottom controls */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#051120]/90 via-transparent to-black/40" />
-            {/* Radial soft depth behind text */}
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_25%_50%,rgba(5,17,32,0.8)_0%,transparent_75%)]" />
+            {/* Multi-layered forest-teal scrim matching the mockup */}
+            {/* Deep pine dark gradient on left where text is anchored */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#062322]/98 via-[#0A3433]/90 md:via-[#0A3433]/80 to-[#0A3433]/30" />
+            
+            {/* Bottom-to-top subtle dark gradient to anchor the ribbon transition */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#062322] via-transparent to-black/30" />
 
-            {/* Slide Content */}
+            {/* Slide Content Container */}
             <div className="relative z-10 w-full h-full flex items-center">
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-10 sm:pt-0">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-8 sm:pt-0">
                 <div className="max-w-3xl text-left space-y-6">
                   
-                  {/* Institutional Authority Badge */}
-                  <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold tracking-wider uppercase shadow-lg">
-                    <span className="w-2 h-2 rounded-full bg-[#C5A46D] shadow-sm animate-pulse" />
-                    <span className="text-white/95">Government Contractor & Institutional Partner</span>
+                  {/* Mockup Kicker with Mint Accent Bar */}
+                  <div className="inline-flex items-center gap-3">
+                    <span className="w-8 h-[2px] bg-[#2DD4BF] rounded-full" />
+                    <span className="text-xs sm:text-sm font-bold tracking-[0.22em] uppercase text-[#2DD4BF]">
+                      {slide.kicker}
+                    </span>
                   </div>
 
-                  {/* High-visibility Headline with text shadow - explicitly white */}
+                  {/* Main Headline matching mockup exactly:
+                      Line 1: Kardan Ventures (Private) Limited
+                      Line 2: Built on Trust. Driven by Expertise.
+                      Line 3: Focused on Growth. (in vivid mint green) */}
                   <h1 
-                    className="text-4xl sm:text-5xl lg:text-6xl font-extrabold !text-white whitespace-pre-line tracking-tight leading-[1.14] hero-title-shadow"
+                    className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold !text-white tracking-tight leading-[1.14] hero-title-shadow"
                     style={{ color: '#ffffff' }}
                   >
-                    {slide.headline}
+                    <span className="block text-white">
+                      {slide.headlinePrefix}
+                    </span>
+                    <span className="block text-white/95 mt-1 sm:mt-2">
+                      {slide.headlineMain}
+                    </span>
+                    <span className="block text-[#34D399] mt-1 sm:mt-2">
+                      {slide.headlineHighlight}
+                    </span>
                   </h1>
 
-                  {/* High-contrast Description */}
+                  {/* Subtitle Description */}
                   <p 
-                    className="text-lg sm:text-xl !text-slate-100 max-w-2xl leading-relaxed font-normal hero-subtitle-shadow"
+                    className="text-base sm:text-lg md:text-xl !text-slate-100 max-w-2xl leading-relaxed font-normal hero-subtitle-shadow"
                     style={{ color: '#f1f5f9' }}
                   >
                     {slide.description}
                   </p>
 
-                  {/* Dual Action Buttons */}
-                  <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+                  {/* Mockup Action Button: "Explore Our Business →" in vibrant emerald */}
+                  <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                     <Link
                       href={slide.ctaHref}
-                      className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-white hover:bg-slate-100 text-[#102A43] font-bold text-sm rounded-lg shadow-xl shadow-black/30 transition-all hover:-translate-y-0.5 cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-[#0D9488] hover:bg-[#0F766E] text-white font-bold text-sm rounded-xl shadow-xl shadow-black/25 transition-all hover:translate-x-1 cursor-pointer"
                       tabIndex={isActive ? 0 : -1}
                     >
                       <span>{slide.cta}</span>
-                      <ArrowRight className="w-4 h-4 text-[#1D4ED8]" />
+                      <ArrowRight className="w-4 h-4 text-emerald-200" />
                     </Link>
 
                     <Link
                       href="/contact-us"
-                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-lg border border-white/35 hover:border-white text-white text-sm font-semibold bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all hover:-translate-y-0.5 cursor-pointer"
+                      className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-white/30 hover:border-white text-white text-sm font-semibold bg-white/10 hover:bg-white/20 backdrop-blur-md transition-all hover:-translate-y-0.5 cursor-pointer"
                       tabIndex={isActive ? 0 : -1}
                     >
-                      <span>Inquire Directly</span>
+                      <span>Inquire With Us</span>
                     </Link>
                   </div>
 
-                  {/* Institutional Trust Indicators */}
-                  <div className="pt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-slate-200 font-medium border-t border-white/15">
+                  {/* Institutional Authority Badges */}
+                  <div className="pt-4 flex flex-wrap items-center gap-y-2 gap-x-6 text-xs text-emerald-100/90 font-medium border-t border-white/15">
                     <div className="flex items-center gap-2">
-                      <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                      <span>PPRA Pre-Qualified</span>
+                      <ShieldCheck className="w-4 h-4 text-[#34D399]" />
+                      <span>PPRA Pre-Qualified Supplier</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Building2 className="w-4 h-4 text-[#C5A46D]" />
-                      <span>PEC Category C-2 Licensed</span>
+                      <Building2 className="w-4 h-4 text-[#2DD4BF]" />
+                      <span>PEC Licensed Constructor</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                      <span>Schedule-A Bank Guarantees</span>
+                      <CheckCircle2 className="w-4 h-4 text-emerald-300" />
+                      <span>Institutional Hardware Partner</span>
                     </div>
                   </div>
 
@@ -169,24 +180,24 @@ export default function HeroSlider() {
       <button
         type="button"
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-[#051120]/70 hover:bg-[#051120] text-white backdrop-blur-md border border-white/20 transition-all duration-200 cursor-pointer shadow-lg hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-[#062322]/70 hover:bg-[#062322] text-white backdrop-blur-md border border-white/20 transition-all duration-200 cursor-pointer shadow-lg hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF]"
         aria-label="Previous slide"
       >
-        <ChevronLeft className="w-6 h-6" />
+        <ChevronLeft className="w-5 h-5" />
       </button>
 
       <button
         type="button"
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full bg-[#051120]/70 hover:bg-[#051120] text-white backdrop-blur-md border border-white/20 transition-all duration-200 cursor-pointer shadow-lg hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 flex items-center justify-center rounded-full bg-[#062322]/70 hover:bg-[#062322] text-white backdrop-blur-md border border-white/20 transition-all duration-200 cursor-pointer shadow-lg hover:scale-105 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF]"
         aria-label="Next slide"
       >
-        <ChevronRight className="w-6 h-6" />
+        <ChevronRight className="w-5 h-5" />
       </button>
 
       {/* Pagination Dots at Bottom Center */}
       <div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2.5"
         role="tablist"
         aria-label="Slide selectors"
       >
@@ -200,9 +211,9 @@ export default function HeroSlider() {
               aria-selected={isActive}
               aria-label={`Go to slide ${index + 1}`}
               onClick={() => goToSlide(index)}
-              className={`rounded-full transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+              className={`rounded-full transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2DD4BF] ${
                 isActive
-                  ? 'bg-white w-8 h-2.5'
+                  ? 'bg-[#34D399] w-8 h-2.5'
                   : 'bg-white/40 hover:bg-white/70 w-2.5 h-2.5'
               }`}
             />

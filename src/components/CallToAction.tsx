@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 export interface CallToActionProps {
   heading: string;
@@ -27,31 +28,41 @@ export default function CallToAction({
       className={`relative w-full overflow-hidden py-20 md:py-28 px-4 sm:px-6 lg:px-8 ${
         isImage
           ? 'bg-cover bg-center bg-no-repeat'
-          : 'bg-[#102A43] bg-gradient-to-br from-[#102A43] via-[#1B3A5C] to-[#102A43]'
+          : 'bg-[#062322] bg-gradient-to-br from-[#062322] via-[#0A3433] to-[#082E2D]'
       } ${className}`}
       style={isImage ? { backgroundImage: `url(${backgroundImage})` } : undefined}
     >
-      {/* Dark overlay for image variant or subtle ambient glow for dark variant */}
-      {isImage ? (
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[1px]" aria-hidden="true" />
-      ) : (
-        <div
-          className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(29,78,216,0.18),transparent_50%)] pointer-events-none"
-          aria-hidden="true"
-        />
-      )}
+      {/* Decorative radial subtle emerald glow */}
+      <div
+        className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(45,212,191,0.15),transparent_50%)] pointer-events-none"
+        aria-hidden="true"
+      />
+      <div 
+        className="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#2DD4BF_1px,transparent_1px)] [background-size:24px_24px]" 
+        aria-hidden="true" 
+      />
 
       {/* Content centered, max-w-3xl */}
       <div className="relative z-10 max-w-3xl mx-auto text-center flex flex-col items-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight leading-tight">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-emerald-200 border border-white/15 text-xs font-semibold uppercase tracking-wider mb-5">
+          <span className="w-2 h-2 rounded-full bg-[#34D399]" />
+          <span>Government Contractor & Institutional Partner</span>
+        </div>
+
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
           {heading}
         </h2>
-        <p className="text-base md:text-lg text-white/80 mt-4 leading-relaxed max-w-2xl">
+        <p className="text-base sm:text-lg text-emerald-100/85 mt-4 leading-relaxed max-w-2xl font-normal">
           {description}
         </p>
-        <div className="mt-8">
-          <Link href={buttonHref} className="btn-white">
-            {buttonText}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+          <Link href={buttonHref} className="btn-emerald inline-flex items-center gap-2 shadow-lg">
+            <span>{buttonText}</span>
+            <ArrowRight className="w-4 h-4 text-emerald-200" />
+          </Link>
+
+          <Link href="/about-us" className="inline-flex items-center gap-2 px-7 py-3 rounded-xl border border-white/25 hover:border-white text-white text-sm font-semibold bg-white/5 hover:bg-white/15 transition-all">
+            <span>About Our Company</span>
           </Link>
         </div>
       </div>

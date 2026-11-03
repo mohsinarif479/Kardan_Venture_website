@@ -6,18 +6,23 @@ export const SITE_LEGAL = "Kardan Ventures (Pvt.) Limited";
 
 /* ─── Color palette ─── */
 export const colors = {
-  navy: "#102A43",
-  navyLight: "#1B3A5C",
-  blue: "#1D4ED8",
-  blueLight: "#3B82F6",
+  tealDarkest: "#062322",
+  tealDark: "#0A3433",
+  tealPrimary: "#0D9488",
+  tealAccent: "#14B8A6",
+  emeraldMint: "#34D399",
+  navy: "#0A3433",
+  navyLight: "#0F4C4A",
+  blue: "#0D9488",
+  blueLight: "#14B8A6",
   white: "#FFFFFF",
-  lightBg: "#F4F7FA",
-  slateDark: "#334E68",
-  slate: "#526174",
-  slateLight: "#9FB3C8",
+  lightBg: "#F8FAFC",
+  slateDark: "#1E293B",
+  slate: "#475569",
+  slateLight: "#94A3B8",
   border: "#E2E8F0",
-  gold: "#C5A46D",
-  goldDark: "#A68B5B",
+  gold: "#10B981",
+  goldDark: "#059669",
   success: "#059669",
   error: "#DC2626",
 } as const;
@@ -31,15 +36,18 @@ export interface NavLink {
 export const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about-us" },
-  { label: "Services", href: "/services" },
-  { label: "Our Approach", href: "/our-approach" },
-  { label: "Company Profile", href: "/company-profile" },
-  { label: "Contact Us", href: "/contact-us" },
+  { label: "Products & Services", href: "/services" },
+  { label: "Our Directors", href: "/our-directors" },
+  { label: "Our Team", href: "/our-team" },
+  { label: "Contact", href: "/contact-us" },
 ];
 
 /* ─── Hero slider data ─── */
 export interface HeroSlide {
-  headline: string;
+  kicker: string;
+  headlinePrefix: string;
+  headlineMain: string;
+  headlineHighlight: string;
   description: string;
   cta: string;
   ctaHref: string;
@@ -48,31 +56,193 @@ export interface HeroSlide {
 
 export const HERO_SLIDES: HeroSlide[] = [
   {
-    headline: "Building Trusted Partnerships.\nDelivering Business Excellence.",
+    kicker: "TRUST / INNOVATION / GROWTH",
+    headlinePrefix: "Kardan Ventures (Private) Limited",
+    headlineMain: "Built on Trust. Driven by Expertise.",
+    headlineHighlight: "Focused on Growth.",
     description:
-      "Professional business operations and dependable institutional partnerships.",
-    cta: "Discover Our Company",
-    ctaHref: "/about-us",
-    image:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=80",
-  },
-  {
-    headline: "Committed to Reliable\nInstitutional Collaboration",
-    description:
-      "A professional approach to working with departments, offices, and organizations.",
-    cta: "Explore Our Services",
+      "A trusted government contractor and IT supply partner, delivering quality products, professional services and long-term business relationships across Pakistan.",
+    cta: "Explore Our Business",
     ctaHref: "/services",
     image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1541888946425-d0fbb1861593?auto=format&fit=crop&w=2000&q=85",
   },
   {
-    headline: "Professional Standards.\nLong-Term Partnerships.",
+    kicker: "PUBLIC SECTOR PROCUREMENT & IT HARDWARE",
+    headlinePrefix: "Kardan Ventures (Private) Limited",
+    headlineMain: "Institutional Integrity. Proven Scale.",
+    headlineHighlight: "Built for Excellence.",
     description:
-      "Focused on integrity, accountability, and dependable business relationships.",
-    cta: "Contact Our Team",
-    ctaHref: "/contact-us",
+      "From high-throughput server infrastructure to end-to-end tender fulfillment, we engineer dependable solutions for Pakistan's public departments.",
+    cta: "View IT Equipment Catalog",
+    ctaHref: "/services#it-equipment",
     image:
-      "https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&w=1920&q=80",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85",
+  },
+  {
+    kicker: "STRATEGIC GLOBAL VISION",
+    headlinePrefix: "Kardan Ventures (Private) Limited",
+    headlineMain: "Diversified Horizons. Enduring Value.",
+    headlineHighlight: "Global Ambition.",
+    description:
+      "Advancing public sector execution in Pakistan while preparing visionary expansions into international hospitality ventures in Germany.",
+    cta: "Discover Our Vision",
+    ctaHref: "/about-us",
+    image:
+      "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=2000&q=85",
+  },
+];
+
+/* ─── Core Business & Capabilities (Mockup 4-Card Grid) ─── */
+export interface CoreCapability {
+  title: string;
+  description: string;
+  icon: string;
+  badge?: string;
+  href: string;
+}
+
+export const CORE_CAPABILITIES: CoreCapability[] = [
+  {
+    title: "Government Procurement & Contracts",
+    description:
+      "Tender participation, competitive bidding and fulfilment of awarded supply contracts.",
+    icon: "Landmark",
+    href: "/services#government-tenders",
+  },
+  {
+    title: "IT Equipment & Direct Supplies",
+    description:
+      "Sourcing and supplying IT equipment and products according to client specifications.",
+    icon: "Package",
+    href: "/services#it-equipment",
+  },
+  {
+    title: "Compliance & Business Integrity",
+    description:
+      "Transparent operations, proper documentation and adherence to regulatory and tax requirements.",
+    icon: "ShieldCheck",
+    href: "/company-profile",
+  },
+  {
+    title: "Future Food & Hospitality Ventures",
+    badge: "Future Ambition",
+    description:
+      "Our long-term vision includes expanding into the food and hospitality sector, with the ambition to develop a distinctive food brand or coffee shop in Germany.",
+    icon: "Coffee",
+    href: "/about-us#future-ambition",
+  },
+];
+
+/* ─── Brand Value Ribbon (Mockup Dark Bar) ─── */
+export interface BrandValue {
+  title: string;
+  tagline: string;
+  icon: string;
+}
+
+export const BRAND_VALUES: BrandValue[] = [
+  {
+    title: "Integrity",
+    tagline: "Doing what is right.",
+    icon: "Handshake",
+  },
+  {
+    title: "Reliability",
+    tagline: "Delivering on our commitments.",
+    icon: "ShieldCheck",
+  },
+  {
+    title: "Long-Term Partnerships",
+    tagline: "Growing together.",
+    icon: "Users",
+  },
+  {
+    title: "Sustainable Growth",
+    tagline: "Building for tomorrow.",
+    icon: "Sprout",
+  },
+];
+
+/* ─── Board of Directors ─── */
+export interface DirectorMember {
+  name: string;
+  role: string;
+  credentials: string;
+  bio: string;
+  focus: string[];
+  image: string;
+}
+
+export const DIRECTORS: DirectorMember[] = [
+  {
+    name: "Mohsin Khan",
+    role: "Managing Director & Chief Executive",
+    credentials: "B.Sc. Engineering, PMP, Member PEC",
+    bio: "Visionary leader with over 16 years of executive management and public sector contracting expertise across Pakistan. Directs institutional tender strategy, multi-lateral negotiations, and corporate international expansion.",
+    focus: ["Strategic Leadership", "Public Procurement", "Institutional Growth"],
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    name: "Tariq Mahmood",
+    role: "Director of Operations & Supply Chain",
+    credentials: "M.Sc. Supply Chain Management, CSCP",
+    bio: "Spearheads high-volume vendor fulfillment, logistics, Tier-1 OEM partnerships (Dell, Lenovo, Cisco), and milestone dispatch across federal and provincial entities.",
+    focus: ["OEM Alliances", "Supply Chain Architecture", "Milestone Handover"],
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+  },
+  {
+    name: "Farhan Siddiqui",
+    role: "Director of Legal, Statutory & Regulatory Affairs",
+    credentials: "LL.M. Corporate Law, Member Islamabad Bar",
+    bio: "Ensures stringent adherence to PPRA 2004/2014, SECP statutory disclosures, PEC Category C-2 regulations, contract drafting, and high-stakes tender arbitration.",
+    focus: ["PPRA Governance", "Contract Arbitration", "Tax & Statutory Law"],
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
+  },
+];
+
+/* ─── Team Members ─── */
+export interface TeamMember {
+  name: string;
+  title: string;
+  department: string;
+  experience: string;
+  bio: string;
+  image: string;
+}
+
+export const TEAM_MEMBERS: TeamMember[] = [
+  {
+    name: "Engr. Salman Raza",
+    title: "Senior Tender Bid Manager",
+    department: "Tenders & Proposals",
+    experience: "9+ Years in Public Sector Bids",
+    bio: "Specializes in BoQ technical evaluations, RFP compliance matrices, and responsive bidding for federal and provincial tenders.",
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    name: "Ayesha Malik",
+    title: "Head of Procurement & Quality Assurance",
+    department: "Quality & Compliance",
+    experience: "8+ Years in ISO Audit & Procurement",
+    bio: "Oversees ISO 9001:2015 quality control, factory inspection certificates, and OEM Manufacturer Authorization Form (MAF) authentications.",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    name: "Zubair Ahmed",
+    title: "Lead Enterprise Solutions Architect",
+    department: "Enterprise IT Systems",
+    experience: "11+ Years in Datacenter & Networking",
+    bio: "Leads technical designs for rack server deployments, campus fiber networking, interactive displays, and institutional data centers.",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=500&q=80",
+  },
+  {
+    name: "Bilal Hassan",
+    title: "Logistics & Site Handover Lead",
+    department: "Logistics & Delivery",
+    experience: "7+ Years in Field Operations",
+    bio: "Coordinates safe nation-wide transit, physical delivery inspection, and formal commissioning sign-offs across Pakistani districts.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80",
   },
 ];
 
@@ -208,22 +378,25 @@ export const FOOTER_GROUPS: FooterGroup[] = [
     title: "Company",
     links: [
       { label: "About Us", href: "/about-us" },
+      { label: "Our Directors", href: "/our-directors" },
+      { label: "Our Team", href: "/our-team" },
       { label: "Our Approach", href: "/our-approach" },
       { label: "Company Profile", href: "/company-profile" },
-      { label: "Contact Us", href: "/contact-us" },
+      { label: "Contact", href: "/contact-us" },
     ],
   },
   {
-    title: "Services",
+    title: "Services & Capabilities",
     links: [
-      { label: "Government Tenders", href: "/services" },
+      { label: "Products & Services", href: "/services" },
+      { label: "Government Tenders", href: "/services#government-tenders" },
+      { label: "IT Equipment Supplies", href: "/services#it-equipment" },
       { label: "Institutional Procurement", href: "/services" },
-      { label: "Supply & Delivery", href: "/services" },
-      { label: "Corporate Services", href: "/services" },
+      { label: "Food & Hospitality Vision", href: "/about-us#future-ambition" },
     ],
   },
   {
-    title: "Legal",
+    title: "Legal & Regulatory",
     links: [
       { label: "Privacy Policy", href: "/privacy-policy" },
       { label: "Terms & Conditions", href: "/terms-and-conditions" },

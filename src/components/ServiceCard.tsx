@@ -46,33 +46,33 @@ export default function ServiceCard({
 
   return (
     <article
-      className="card-hover flex flex-col justify-between h-full bg-white rounded-xl border border-[#E2E8F0] p-8 transition-all duration-300"
+      className="card-hover flex flex-col justify-between h-full bg-white rounded-2xl border border-slate-200/90 p-8 transition-all duration-300"
       style={typeof index === "number" ? { animationDelay: `${index * 80}ms` } : undefined}
     >
       <div>
-        {/* Top: Icon rendered in a 56x56px rounded-lg box with light blue background (bg-blue-50), blue icon color */}
-        <div className="w-[56px] h-[56px] rounded-lg bg-blue-50 flex items-center justify-center text-[#1D4ED8] shrink-0">
+        {/* Dark Teal circle / rounded box */}
+        <div className="w-14 h-14 rounded-xl bg-emerald-50 text-[#0D9488] flex items-center justify-center shrink-0">
           <IconComponent className="w-7 h-7" aria-hidden="true" />
         </div>
 
-        {/* Title: text-xl font-bold text-[#102A43] mt-5 */}
-        <h3 className="text-xl font-bold text-[#102A43] mt-5 leading-snug">
+        {/* Title */}
+        <h3 className="text-xl font-bold text-[#0A2E2C] mt-5 leading-snug">
           {title}
         </h3>
 
-        {/* Description: text-[#526174] mt-3 leading-relaxed */}
+        {/* Description */}
         <p className="text-[#526174] mt-3 leading-relaxed text-sm sm:text-base">
           {description}
         </p>
       </div>
 
-      {/* Bottom: Small 'Learn more →' text link in blue that links to /services */}
-      <div className="mt-6 pt-2">
+      {/* Bottom: Learn more link */}
+      <div className="mt-6 pt-4 border-t border-slate-100">
         <Link
           href="/services"
-          className="inline-flex items-center text-sm font-semibold text-[#1D4ED8] hover:text-blue-800 transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-sm"
+          className="inline-flex items-center text-sm font-semibold text-[#0D9488] hover:text-[#0F766E] transition-colors group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0D9488] rounded-sm"
         >
-          <span>Learn more</span>
+          <span>Explore Service</span>
           <span
             className="ml-1.5 transition-transform duration-200 group-hover:translate-x-1"
             aria-hidden="true"

@@ -1,45 +1,38 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { SITE_NAME, SITE_LEGAL, SITE_URL } from "@/lib/constants";
 
-const fontSans = Plus_Jakarta_Sans({
-  variable: "--font-sans",
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
-});
-
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#102A43",
+  themeColor: "#0A3433",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} | Professional Government Contractor & Institutional Partner`,
+    default: `${SITE_NAME} | Government Contractor & Institutional Partner`,
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    "Kardan Ventures (Pvt.) Limited — Professional business operations, government tender participation, institutional procurement support, and dependable B2G partnerships.",
+    "Kardan Ventures (Private) Limited — A trusted government contractor and IT supply partner, delivering quality products, professional services and long-term business relationships across Pakistan.",
   keywords: [
     "Government Contractor",
-    "Public Tenders",
+    "Public Tenders Pakistan",
     "Institutional Procurement",
-    "PPRA Vendor",
-    "Civil Construction",
+    "PPRA Pre-Qualified Vendor",
+    "PEC Category C-2",
     "Enterprise IT Equipment",
+    "Dell PowerEdge",
     "Kardan Ventures",
   ],
   authors: [{ name: SITE_LEGAL }],
   openGraph: {
-    title: `${SITE_NAME} — Professional Government Contractor`,
+    title: `${SITE_NAME} — Built on Trust. Driven by Expertise. Focused on Growth.`,
     description:
-      "Dependable institutional partnerships, government tender participation, and enterprise procurement services.",
+      "A trusted government contractor and IT supply partner, delivering quality products, professional services and long-term business relationships across Pakistan.",
     type: "website",
     locale: "en_US",
     siteName: SITE_NAME,
@@ -59,11 +52,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${fontSans.variable} font-sans antialiased bg-white text-[#334E68]`}
+        className="font-[family-name:'Plus_Jakarta_Sans',var(--font-sans),system-ui,sans-serif] antialiased bg-white text-[#334E68]"
         suppressHydrationWarning
       >
         <Header />
-        <main className="min-h-screen">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

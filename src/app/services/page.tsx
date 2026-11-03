@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import ScrollReveal from '@/components/ScrollReveal';
 import CallToAction from '@/components/CallToAction';
+import EquipmentShowcase from '@/components/EquipmentShowcase';
 import { SERVICES_OVERVIEW } from '@/lib/constants';
 
 export const metadata: Metadata = {
@@ -310,6 +311,11 @@ export default function ServicesPage() {
             </section>
           );
         })}
+      </div>
+
+      {/* ─── 2.5 Enterprise IT Equipment Hardware Showcase ─── */}
+      <div id="it-equipment">
+        <EquipmentShowcase />
       </div>
 
       {/* ─── 3. CTA Banner ─── */}

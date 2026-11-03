@@ -1,22 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   KARDAN VENTURES — Premium Corporate Design System
+   KARDAN VENTURES — Premium Corporate Forest Teal & Emerald Design
    ═══════════════════════════════════════════════════════════════ */
 
 :root {
-  --navy: #102A43;
-  --navy-light: #1B3A5C;
-  --blue: #1D4ED8;
-  --blue-light: #3B82F6;
+  --teal-darkest: #062322;
+  --teal-dark: #0A3433;
+  --teal-primary: #0D9488;
+  --teal-accent: #14B8A6;
+  --emerald-mint: #34D399;
+  
+  --navy: #0A3433;
+  --navy-light: #0F4C4A;
+  --blue: #0D9488;
+  --blue-light: #14B8A6;
+  
   --white: #FFFFFF;
-  --light-bg: #F4F7FA;
-  --slate-dark: #334E68;
-  --slate: #526174;
-  --slate-light: #9FB3C8;
+  --light-bg: #F8FAFC;
+  --slate-dark: #1E293B;
+  --slate: #475569;
+  --slate-light: #94A3B8;
   --border: #E2E8F0;
-  --gold: #C5A46D;
-  --gold-dark: #A68B5B;
+  
+  --gold: #10B981;
+  --gold-dark: #059669;
   --success: #059669;
   --error: #DC2626;
 }
@@ -53,8 +62,8 @@ body {
 }
 
 ::selection {
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: #0D9488;
+  color: #FFFFFF;
 }
 
 /* ─── Typography ─── */
@@ -89,13 +98,13 @@ body {
   transition: opacity 0.8s ease-in-out;
 }
 
-/* ─── Premium button ─── */
+/* ─── Premium buttons matching mockup ─── */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
-  background-color: var(--blue);
+  padding: 0.75rem 1.5rem;
+  background-color: #093333;
   color: var(--white);
   font-weight: 600;
   font-size: 0.875rem;
@@ -106,32 +115,54 @@ body {
   text-decoration: none;
 }
 .btn-primary:hover {
-  background-color: #1e40af;
+  background-color: #0c4342;
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(29, 78, 216, 0.25);
+  box-shadow: 0 8px 20px rgba(9, 51, 51, 0.25);
 }
 .btn-primary:active {
   transform: translateY(0);
+}
+
+.btn-emerald {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: #0D9488;
+  color: var(--white);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+.btn-emerald:hover {
+  background-color: #0F766E;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
 }
 
 .btn-outline {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.875rem 2rem;
+  padding: 0.75rem 1.75rem;
   background-color: transparent;
-  color: var(--navy);
+  color: #0A3433;
   font-weight: 600;
   font-size: 0.875rem;
   border-radius: 0.5rem;
-  border: 2px solid var(--border);
+  border: 1.5px solid var(--border);
   transition: all 0.25s ease;
   cursor: pointer;
   text-decoration: none;
 }
 .btn-outline:hover {
-  border-color: var(--blue);
-  color: var(--blue);
+  border-color: #0D9488;
+  color: #0D9488;
+  background-color: #F0FDF4;
   transform: translateY(-1px);
 }
 
@@ -141,7 +172,7 @@ body {
   gap: 0.5rem;
   padding: 0.875rem 2rem;
   background-color: var(--white);
-  color: var(--navy);
+  color: #0A3433;
   font-weight: 600;
   font-size: 0.875rem;
   border-radius: 0.5rem;
@@ -151,16 +182,16 @@ body {
   text-decoration: none;
 }
 .btn-white:hover {
-  background-color: #f0f4f8;
+  background-color: #F8FAFC;
   transform: translateY(-1px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-/* ─── Nav link hover underline ─── */
+/* ─── Nav link hover underline matching mockup ─── */
 .nav-link {
   position: relative;
   font-weight: 500;
-  color: var(--slate-dark);
+  color: #334E68;
   transition: color 0.25s ease;
 }
 .nav-link::after {
@@ -170,27 +201,30 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background-color: var(--blue);
+  background-color: #0D9488;
+  border-radius: 2px;
   transition: width 0.3s ease;
 }
 .nav-link:hover {
-  color: var(--blue);
+  color: #0D9488;
 }
 .nav-link:hover::after,
 .nav-link.active::after {
   width: 100%;
 }
 .nav-link.active {
-  color: var(--blue);
+  color: #0D9488;
+  font-weight: 600;
 }
 
 /* ─── Card hover ─── */
 .card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 .card-hover:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(16, 42, 67, 0.08);
+  box-shadow: 0 20px 40px rgba(10, 52, 51, 0.08);
+  border-color: #CBD5E1;
 }
 
 /* ─── Image zoom on hover ─── */
@@ -204,17 +238,17 @@ body {
   transform: scale(1.05);
 }
 
-/* ─── Gold accent bar ─── */
-.gold-bar {
+/* ─── Mint accent bar ─── */
+.mint-bar {
   width: 48px;
   height: 3px;
-  background-color: var(--gold);
+  background-color: #10B981;
   border-radius: 999px;
 }
 
 /* ─── Focus visible ring ─── */
 :focus-visible {
-  outline: 2px solid var(--blue);
+  outline: 2px solid #0D9488;
   outline-offset: 2px;
 }
 
