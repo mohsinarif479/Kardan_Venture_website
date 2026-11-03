@@ -49,16 +49,22 @@ export default function ValueRibbon() {
                   } ${!isLast ? 'lg:pr-6' : ''}`}
                 >
                   {/* Clean outline icon in crisp white/mint */}
-                  <div className="w-10 h-10 rounded-lg bg-white/5 border border-white/15 flex items-center justify-center shrink-0 text-[#2DD4BF]">
-                    <IconComp className="w-5 h-5 text-white" aria-hidden="true" />
+                  <div className="w-11 h-11 rounded-lg bg-white/10 border border-white/20 flex items-center justify-center shrink-0 shadow-sm">
+                    <IconComp className="w-5 h-5 text-[#2DD4BF]" aria-hidden="true" />
                   </div>
                   
-                  {/* Title & Tagline */}
+                  {/* Title & Tagline with explicit white/mint contrast */}
                   <div>
-                    <h3 className="text-sm sm:text-base font-bold text-white tracking-wide">
+                    <h3 
+                      className="text-base sm:text-[17px] font-bold !text-white tracking-wide hero-title-shadow leading-tight"
+                      style={{ color: '#ffffff' }}
+                    >
                       {item.title}
                     </h3>
-                    <p className="text-xs text-emerald-100/75 mt-0.5">
+                    <p 
+                      className="text-xs sm:text-[13px] !text-[#A7F3D0] mt-1 font-medium leading-snug"
+                      style={{ color: '#a7f3d0' }}
+                    >
                       {item.tagline}
                     </p>
                   </div>
@@ -74,7 +80,7 @@ export default function ValueRibbon() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#526174]">
           <div className="flex items-center gap-2">
             <MapPin className="w-3.5 h-3.5 text-[#0D9488] shrink-0" aria-hidden="true" />
-            <span className="font-medium text-[#475569]">
+            <span className="font-semibold text-[#1E293B]">
               Registered Office: (Your Registered Address), Punjab, Pakistan
             </span>
           </div>

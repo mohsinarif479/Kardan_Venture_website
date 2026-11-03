@@ -73,6 +73,11 @@ body {
   line-height: 1.2;
 }
 
+/* Ensure all dark sections always render pure white headings and high-contrast text */
+:is([class*="bg-[#062"], [class*="bg-[#083"], [class*="bg-[#0A3"], footer]) :is(h1, h2, h3, h4, h5, h6) {
+  color: #ffffff !important;
+}
+
 /* ─── Smooth scroll-reveal animation ─── */
 .reveal {
   opacity: 0;

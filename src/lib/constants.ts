@@ -638,7 +638,7 @@ export const EXECUTED_PROJECTS: ExecutedProject[] = [
       "Energy-Efficient Smart LED Streetlighting Poles",
       "Defect Liability Certification Period Completed"
     ],
-    image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?auto=format&fit=crop&w=800&q=80",
+    image: "/images/arterial-road-infrastructure.jpg",
   },
 ];
 
